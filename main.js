@@ -5,17 +5,16 @@ const emailListEl = document.querySelector('.email_list');
 const mybtn = document.querySelector('.mybtn');
 
 const myFunction = (() => {
+    emailListEl.innerHTML = '';
     for (let i = 0; i < 10; i++) {
         fetch('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.response);
-            
-            emailListEl.innerHTML += `<li>${data.response}</li>`
-    
+            .then(response => response.json())
+            .then(data => {
+                emailListEl.innerHTML += `<li>${data.response}</li>`
+
             })
     }
 
-})  
+})
 
 mybtn.addEventListener('click', myFunction)
